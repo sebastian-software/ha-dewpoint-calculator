@@ -2,8 +2,11 @@
   "domain": "dewpoint_calculator",
   "name": "Dewpoint Calculator",
   "documentation": "https://github.com/sebastian-software/ha-dewpoint-calculator",
+  "issue_tracker": "github.com/sebastian-software/ha-dewpoint-calculator/issues",
   "dependencies": [],
-  "codeowners": [],
+  "codeowners": [
+    "@fastner"
+  ],
   "requirements": [],
   "version": "0.0.1",
   "config_flow": true,
