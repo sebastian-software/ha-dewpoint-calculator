@@ -10,6 +10,7 @@ import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.core import callback
 from homeassistant.helpers import selector
+from homeassistant.helpers.translation import async_get_translations
 
 from .const import DOMAIN, CONF_TEMPERATURE_ENTITY, CONF_HUMIDITY_ENTITY
 
@@ -27,6 +28,22 @@ class DewpointCalculatorConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         """Handle the initial step."""
         errors: dict[str, str] = {}
 
+        # Get translations
+        translations = await async_get_translations(
+            self.hass, self.hass.config.language, "config", [DOMAIN]
+        )
+        domain_strings: dict[str, Any] | str = translations.get(DOMAIN, {})
+        if isinstance(domain_strings, dict):
+            config_strings: dict[str, Any] | str = domain_strings.get("config", {})
+            if isinstance(config_strings, dict):
+                step_strings: dict[str, Any] = config_strings.get("step", {}).get(
+                    "user", {}
+                )
+            else:
+                step_strings = {}
+        else:
+            step_strings = {}
+
         if user_input is not None:
             # Unique ID based on the selected sensors
             unique_id = f"{user_input[CONF_TEMPERATURE_ENTITY]}_{user_input[CONF_HUMIDITY_ENTITY]}"
@@ -34,7 +51,12 @@ class DewpointCalculatorConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             self._abort_if_unique_id_configured()
 
             # Create title from the name
-            title = user_input.get("name", "Dewpoint")
+            default_title = (
+                step_strings.get("title", "Dewpoint")
+                if isinstance(step_strings, dict)
+                else "Dewpoint"
+            )
+            title = user_input.get("name", default_title)
 
             return self.async_create_entry(
                 title=title,
