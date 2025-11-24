@@ -5,5 +5,7 @@
   "dependencies": [],
   "codeowners": [],
   "requirements": [],
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "config_flow": true,
+  "iot_class": "calculated"
 }
