@@ -32,10 +32,10 @@ sensor:
     humidity_entity: sensor.your_humidity
 ```
 
-## Parameter
+## Parameters
 
-- `temperature_entity`: Entity-ID deines Temperatursensors
-- `humidity_entity`: Entity-ID deines Feuchtigkeitssensors
+- `temperature_entity`: Entity ID of your temperature sensor
+- `humidity_entity`: Entity ID of your humidity sensor
 
 ## License
 
