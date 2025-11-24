@@ -1,0 +1,9 @@
+{
+  "domain": "dewpoint_calculator",
+  "name": "Dewpoint Calculator",
+  "documentation": "https://github.com/sebastian-software/ha-dewpoint-calculator",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": [],
+  "version": "0.0.1"
+}
