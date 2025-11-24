@@ -1,5 +1,36 @@
 {
   "config": {
-    "title": "Taupunkt-Rechner"
+    "title": "Taupunkt-Rechner",
+    "step": {
+      "user": {
+        "title": "Taupunkt-Rechner",
+        "description": "Konfigurieren Sie den Taupunkt-Rechner durch Auswahl von Temperatur- und Feuchtigkeitssensoren.",
+        "data": {
+          "name": "Name",
+          "temperature_entity": "Temperatursensor",
+          "humidity_entity": "Feuchtigkeitssensor"
+        }
+      }
+    },
+    "error": {
+      "invalid_entity": "Ungültige Entität ausgewählt",
+      "already_configured": "Diese Kombination von Sensoren ist bereits konfiguriert"
+    },
+    "abort": {
+      "already_configured": "Diese Kombination von Sensoren ist bereits konfiguriert"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Taupunkt-Rechner-Konfiguration aktualisieren",
+        "description": "Aktualisieren Sie die Sensorkonfiguration.",
+        "data": {
+          "name": "Name",
+          "temperature_entity": "Temperatursensor",
+          "humidity_entity": "Feuchtigkeitssensor"
+        }
+      }
+    }
   }
 }

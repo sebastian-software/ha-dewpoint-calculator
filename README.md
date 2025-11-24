@@ -21,17 +21,6 @@ A custom integration for Home Assistant that calculates the dew point based on t
 1. Copy the `custom_components/dewpoint_calculator` folder to your `config/custom_components/` directory
 2. Restart Home Assistant
 
-## Configuration
-
-Add the following to your `configuration.yaml`:
-
-```yaml
-sensor:
-  - platform: dewpoint_calculator
-    temperature_entity: sensor.your_temperature
-    humidity_entity: sensor.your_humidity
-```
-
 ## Parameters
 
 - `temperature_entity`: Entity ID of your temperature sensor

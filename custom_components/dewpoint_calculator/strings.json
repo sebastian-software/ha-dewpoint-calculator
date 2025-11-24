@@ -1,5 +1,36 @@
 {
   "config": {
-    "title": "Dewpoint Calculator"
+    "title": "Dewpoint Calculator",
+    "step": {
+      "user": {
+        "title": "Dewpoint Calculator",
+        "description": "Configure the dewpoint calculator by selecting temperature and humidity sensors.",
+        "data": {
+          "name": "Name",
+          "temperature_entity": "Temperature Sensor",
+          "humidity_entity": "Humidity Sensor"
+        }
+      }
+    },
+    "error": {
+      "invalid_entity": "Invalid entity selected",
+      "already_configured": "This combination of sensors is already configured"
+    },
+    "abort": {
+      "already_configured": "This combination of sensors is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Update Dewpoint Calculator Configuration",
+        "description": "Update the sensor configuration.",
+        "data": {
+          "name": "Name",
+          "temperature_entity": "Temperature Sensor",
+          "humidity_entity": "Humidity Sensor"
+        }
+      }
+    }
   }
 }
