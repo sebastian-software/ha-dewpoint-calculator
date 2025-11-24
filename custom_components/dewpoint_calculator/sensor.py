@@ -27,7 +27,7 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up Dewpoint Calculator sensor from a config entry."""
-    name = entry.data.get("name", "Taupunkt")
+    name = entry.data.get("name", "Dewpoint")
     temp_entity = entry.data.get(CONF_TEMPERATURE_ENTITY)
     humidity_entity = entry.data.get(CONF_HUMIDITY_ENTITY)
 
@@ -107,7 +107,7 @@ class DewpointCalculatorSensor(SensorEntity):
 
         if temp_state is None or humidity_state is None:
             self._state = None
-            self._attr_extra_state_attributes = {"error": "Sensor nicht verfügbar"}
+            self._attr_extra_state_attributes = {"error": "Sensor not available"}
             return
 
         try:
