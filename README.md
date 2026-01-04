@@ -1,8 +1,28 @@
-# Temperature Calculator für Home Assistant
+# Dewpoint Calculator für Home Assistant
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
+[![GitHub Release](https://img.shields.io/github/v/release/sebastian-software/ha-dewpoint-calculator)](https://github.com/sebastian-software/ha-dewpoint-calculator/releases)
+[![License](https://img.shields.io/github/license/sebastian-software/ha-dewpoint-calculator)](https://github.com/sebastian-software/ha-dewpoint-calculator/blob/main/LICENSE)
+[![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2023.1.0+-blue.svg)](https://www.home-assistant.io/)
+[![GitHub issues](https://img.shields.io/github/issues/sebastian-software/ha-dewpoint-calculator)](https://github.com/sebastian-software/ha-dewpoint-calculator/issues)
+[![Validate](https://github.com/sebastian-software/ha-dewpoint-calculator/actions/workflows/validate.yaml/badge.svg)](https://github.com/sebastian-software/ha-dewpoint-calculator/actions/workflows/validate.yaml)
 
-A custom integration for Home Assistant that calculates the dew point based on temperature and humidity.
+A custom integration for Home Assistant that calculates the dew point based on temperature and humidity sensors.
+
+## What is Dew Point?
+
+The **dew point** is the temperature at which air becomes saturated with moisture and water vapor begins to condense into liquid water (dew). It's a key indicator of humidity and comfort levels in your home.
+
+### Why is this useful?
+
+- **Mold Prevention**: When surfaces in your home (walls, windows, etc.) fall below the dew point temperature, condensation forms, creating ideal conditions for mold growth. By monitoring the dew point, you can take preventive action.
+- **Comfort Assessment**: Unlike relative humidity, dew point provides an absolute measure of moisture in the air. A dew point above 20°C (68°F) feels muggy, while below 10°C (50°F) feels dry and comfortable.
+- **Climate Control Optimization**: Understanding dew point helps you optimize your heating, cooling, and dehumidification systems (HVAC) to maintain a healthy indoor environment.
+- **Window Condensation**: Compare room dew point with window surface temperatures to predict and prevent condensation issues.
+
+### How does it work?
+
+This integration uses existing temperature and humidity sensors in your Home Assistant setup to automatically calculate and display the dew point as a new sensor entity. The calculation updates whenever your source sensors change, giving you real-time monitoring of moisture conditions.
 
 ## Installation via HACS
 
@@ -34,4 +54,4 @@ A custom integration for Home Assistant that calculates the dew point based on t
 
 <img src="https://cdn.rawgit.com/sebastian-software/sebastian-software-brand/0d4ec9d6/sebastiansoftware-en.svg" alt="Logo of Sebastian Software GmbH, Mainz, Germany" width="460" height="160"/>
 
-Copyright 2025<br/>[Sebastian Software GmbH](https://www.sebastian-software.de)
+Copyright 2025–2026<br/>[Sebastian Software GmbH](https://www.sebastian-software.de)

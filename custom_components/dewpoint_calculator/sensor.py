@@ -70,6 +70,7 @@ class DewpointCalculatorSensor(SensorEntity):
         self._attr_device_class = SensorDeviceClass.TEMPERATURE
         self._attr_suggested_display_precision = 1
         self._attr_icon = "mdi:water-thermometer"
+        self._attr_translation_key = "dewpoint"
         self._state: float | None = None
 
         # Additional attributes for debugging
@@ -107,12 +108,15 @@ class DewpointCalculatorSensor(SensorEntity):
 
         if temp_state is None or humidity_state is None:
             self._state = None
-            self._attr_extra_state_attributes = {"error": "Sensor not available"}
+            self._attr_extra_state_attributes = {"error": "sensor_not_found"}
             return
 
-        if temp_state.state in ("unknown", "unavailable") or humidity_state.state in ("unknown", "unavailable"):
+        if temp_state.state in ("unknown", "unavailable") or humidity_state.state in (
+            "unknown",
+            "unavailable",
+        ):
             self._state = None
-            self._attr_extra_state_attributes = {"error": "Source sensor unavailable"}
+            self._attr_extra_state_attributes = {"error": "source_unavailable"}
             return
 
         try:
@@ -144,6 +148,11 @@ class DewpointCalculatorSensor(SensorEntity):
             }
 
         except (ValueError, TypeError, ZeroDivisionError) as err:
-            _LOGGER.warning("Error calculating dewpoint for %s: %s", self._attr_name, err)
+            _LOGGER.warning(
+                "Error calculating dewpoint for %s: %s", self._attr_name, err
+            )
             self._state = None
-            self._attr_extra_state_attributes = {"error": str(err)}
+            self._attr_extra_state_attributes = {
+                "error": "calculation_error",
+                "error_details": str(err),
+            }
