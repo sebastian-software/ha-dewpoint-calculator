@@ -38,17 +38,17 @@ class DewpointCalculatorConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         # Schema with nice dropdown selectors
         data_schema = vol.Schema(
             {
-                vol.Required("name", default="Dewpoint"): str,
+                vol.Required("name"): str,
                 vol.Required(CONF_TEMPERATURE_ENTITY): selector.EntitySelector(
                     selector.EntitySelectorConfig(
-                        domain="sensor",
-                        device_class="temperature",
+                        domain=["sensor"],
+                        device_class=["temperature"],
                     )
                 ),
                 vol.Required(CONF_HUMIDITY_ENTITY): selector.EntitySelector(
                     selector.EntitySelectorConfig(
-                        domain="sensor",
-                        device_class="humidity",
+                        domain=["sensor"],
+                        device_class=["humidity"],
                     )
                 ),
             }
@@ -66,15 +66,11 @@ class DewpointCalculatorConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         config_entry: config_entries.ConfigEntry,
     ) -> config_entries.OptionsFlow:
         """Get the options flow for this handler."""
-        return OptionsFlowHandler(config_entry)
+        return OptionsFlowHandler()
 
 
 class OptionsFlowHandler(config_entries.OptionsFlow):
     """Handle options flow for Dewpoint Calculator."""
-
-    def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
-        """Initialize options flow."""
-        self.config_entry = config_entry
 
     async def async_step_init(
         self, user_input: dict[str, Any] | None = None
@@ -100,8 +96,8 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     default=self.config_entry.data.get(CONF_TEMPERATURE_ENTITY),
                 ): selector.EntitySelector(
                     selector.EntitySelectorConfig(
-                        domain="sensor",
-                        device_class="temperature",
+                        domain=["sensor"],
+                        device_class=["temperature"],
                     )
                 ),
                 vol.Required(
@@ -109,8 +105,8 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     default=self.config_entry.data.get(CONF_HUMIDITY_ENTITY),
                 ): selector.EntitySelector(
                     selector.EntitySelectorConfig(
-                        domain="sensor",
-                        device_class="humidity",
+                        domain=["sensor"],
+                        device_class=["humidity"],
                     )
                 ),
             }
