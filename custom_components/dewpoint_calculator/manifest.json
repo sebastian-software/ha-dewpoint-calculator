@@ -8,7 +8,7 @@
     "@fastner"
   ],
   "requirements": [],
-  "version": "0.0.5",
+  "version": "0.0.6",
   "config_flow": true,
   "iot_class": "calculated"
 }
