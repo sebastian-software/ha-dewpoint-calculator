@@ -41,14 +41,14 @@ class DewpointCalculatorConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 vol.Required("name"): str,
                 vol.Required(CONF_TEMPERATURE_ENTITY): selector.EntitySelector(
                     selector.EntitySelectorConfig(
-                        domain="sensor",
-                        device_class="temperature",
+                        domain=["sensor"],
+                        device_class=["temperature"],
                     )
                 ),
                 vol.Required(CONF_HUMIDITY_ENTITY): selector.EntitySelector(
                     selector.EntitySelectorConfig(
-                        domain="sensor",
-                        device_class="humidity",
+                        domain=["sensor"],
+                        device_class=["humidity"],
                     )
                 ),
             }
@@ -100,8 +100,8 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     default=self.config_entry.data.get(CONF_TEMPERATURE_ENTITY),
                 ): selector.EntitySelector(
                     selector.EntitySelectorConfig(
-                        domain="sensor",
-                        device_class="temperature",
+                        domain=["sensor"],
+                        device_class=["temperature"],
                     )
                 ),
                 vol.Required(
@@ -109,8 +109,8 @@ class OptionsFlowHandler(config_entries.OptionsFlow):
                     default=self.config_entry.data.get(CONF_HUMIDITY_ENTITY),
                 ): selector.EntitySelector(
                     selector.EntitySelectorConfig(
-                        domain="sensor",
-                        device_class="humidity",
+                        domain=["sensor"],
+                        device_class=["humidity"],
                     )
                 ),
             }
