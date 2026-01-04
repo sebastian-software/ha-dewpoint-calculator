@@ -5,8 +5,7 @@
 [![License](https://img.shields.io/github/license/sebastian-software/ha-dewpoint-calculator)](https://github.com/sebastian-software/ha-dewpoint-calculator/blob/main/LICENSE)
 [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2023.1.0+-blue.svg)](https://www.home-assistant.io/)
 [![GitHub issues](https://img.shields.io/github/issues/sebastian-software/ha-dewpoint-calculator)](https://github.com/sebastian-software/ha-dewpoint-calculator/issues)
-[![CI](https://github.com/sebastian-software/ha-dewpoint-calculator/workflows/CI/badge.svg)](https://github.com/sebastian-software/ha-dewpoint-calculator/actions)
-[![HACS Validation](https://github.com/sebastian-software/ha-dewpoint-calculator/workflows/Validate%20with%20HACS/badge.svg)](https://github.com/sebastian-software/ha-dewpoint-calculator/actions)
+[![Validate](https://github.com/sebastian-software/ha-dewpoint-calculator/actions/workflows/validate.yaml/badge.svg)](https://github.com/sebastian-software/ha-dewpoint-calculator/actions/workflows/validate.yaml)
 
 A custom integration for Home Assistant that calculates the dew point based on temperature and humidity sensors.
 
