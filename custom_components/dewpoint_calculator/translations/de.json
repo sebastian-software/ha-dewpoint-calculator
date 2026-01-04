@@ -12,10 +12,6 @@
         }
       }
     },
-    "error": {
-      "invalid_entity": "Ungültige Entität ausgewählt",
-      "already_configured": "Diese Kombination von Sensoren ist bereits konfiguriert"
-    },
     "abort": {
       "already_configured": "Diese Kombination von Sensoren ist bereits konfiguriert"
     }
@@ -29,6 +25,37 @@
           "name": "Name",
           "temperature_entity": "Temperatursensor",
           "humidity_entity": "Feuchtigkeitssensor"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "dewpoint": {
+        "state_attributes": {
+          "temperature": {
+            "name": "Temperatur"
+          },
+          "humidity": {
+            "name": "Luftfeuchtigkeit"
+          },
+          "temperature_entity": {
+            "name": "Temperaturentität"
+          },
+          "humidity_entity": {
+            "name": "Feuchtigkeitsentität"
+          },
+          "error": {
+            "name": "Fehler",
+            "state": {
+              "sensor_not_found": "Sensor nicht verfügbar",
+              "source_unavailable": "Quellsensor nicht verfügbar",
+              "calculation_error": "Fehler bei der Taupunktberechnung"
+            }
+          },
+          "error_details": {
+            "name": "Fehlerdetails"
+          }
         }
       }
     }
