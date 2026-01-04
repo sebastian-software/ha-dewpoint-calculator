@@ -38,7 +38,7 @@ class DewpointCalculatorConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         # Schema with nice dropdown selectors
         data_schema = vol.Schema(
             {
-                vol.Required("name", default="Dewpoint"): str,
+                vol.Required("name"): str,
                 vol.Required(CONF_TEMPERATURE_ENTITY): selector.EntitySelector(
                     selector.EntitySelectorConfig(
                         domain="sensor",
