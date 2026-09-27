@@ -5,7 +5,11 @@ from __future__ import annotations
 import logging
 import math
 
-from homeassistant.components.sensor import SensorDeviceClass, SensorEntity
+from homeassistant.components.sensor import (
+    SensorDeviceClass,
+    SensorEntity,
+    SensorStateClass,
+)
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import UnitOfTemperature
 from homeassistant.core import HomeAssistant, callback
@@ -68,6 +72,7 @@ class DewpointCalculatorSensor(SensorEntity):
         self._attr_unique_id = f"{DOMAIN}_{entry.entry_id}"
         self._attr_native_unit_of_measurement = UnitOfTemperature.CELSIUS
         self._attr_device_class = SensorDeviceClass.TEMPERATURE
+        self._attr_state_class = SensorStateClass.MEASUREMENT
         self._attr_suggested_display_precision = 1
         self._attr_icon = "mdi:water-thermometer"
         self._attr_translation_key = "dewpoint"
