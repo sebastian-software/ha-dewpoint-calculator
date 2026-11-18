@@ -16,7 +16,7 @@ from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.event import async_track_state_change_event
 
-from .const import DOMAIN, CONF_TEMPERATURE_ENTITY, CONF_HUMIDITY_ENTITY
+from .const import CONF_HUMIDITY_ENTITY, CONF_TEMPERATURE_ENTITY, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -127,6 +127,11 @@ class DewpointCalculatorSensor(SensorEntity):
         try:
             temp = float(temp_state.state)
             rh = float(humidity_state.state)
+
+            if not math.isfinite(temp):
+                raise ValueError(f"Invalid temperature: {temp}")
+            if not math.isfinite(rh):
+                raise ValueError(f"Invalid humidity: {rh}%")
 
             # Magnus formula for dewpoint
             # dewpoint = (K3 * ((K2*temp)/(K3+temp) + ln(rh/100))) /
